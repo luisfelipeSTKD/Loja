@@ -1,0 +1,2 @@
+# Loja
+Praticando com Python.
