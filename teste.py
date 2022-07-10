@@ -40,7 +40,7 @@ def obter_limite():
     idade = anoAtual - anoNascimento
     limiteDeGasto = (salario * (idade/1000)) + 100
 
-    print(f"O seu limite lirado é a quantia de R${limiteDeGasto}\n")
+    print(f"O seu limite liberado é a quantia de R${limiteDeGasto}\n")
 
     print("Análise finalizada!\n")
 
@@ -48,12 +48,20 @@ def obter_limite():
 
 limiteDeGasto = obter_limite()
 
-def verificar_produto(limiteDeGasto):
+produtosDisponiveis = ['Mesa', 'Cadeira', 'Pia']
+
+def verificar_produto(limiteDeGasto, totalProdutos, qtdProdutos):
+    
+    totalProdutos = 0
 
     if totalProdutos in produtosDisponiveis:
-        qtdProdutos = int(input("Quantos"))
+        qtdProdutos = int(input(f"Informe os produtos para cadastrar: {produtosDisponiveis}"))
 
-    totalProdutos = 0
+        totalProdutos = totalProdutos + qtdProdutos
+
+    else:
+        print(f"Item {produtosDisponiveis} não cadastrado.")
+
     # limiteMax = 0
     while totalProdutos < limiteDeGasto:
         produtosCadastrados = input("Informe os produtos para cadastrar: ")
@@ -76,9 +84,9 @@ def verificar_produto(limiteDeGasto):
     else:
         print("\nPermitido parcelamento em três vezes ou mais.")
 
-    return produto, precoProduto
+    return produto, precoProduto, limiteDeGasto, totalProdutos, qtdProdutos
 
-produto, precoProduto = verificar_produto(limiteDeGasto)
+produto, precoProduto = verificar_produto(limiteDeGasto, totalProdutos, qtdProdutos)
 
 # Coloque o código que você fez nas etapas 1 e 2 dentro de uma única função chamada “obter_limite”. Essa função deverá retornar o limite que o usuário poderá gastar.
 
@@ -96,6 +104,6 @@ limite = obter_limite()
 
 # Por fim, utilize uma estrutura de repetição (for ou while) por n vezes, com n equivalendo à quantidade de produtos que ele deseja cadastrar.
 
-produtosDisponiveis = ['Mesa', 'Cadeira', 'Pia']
+
 
 print("Quais produtos deseja cadastrar? ")
