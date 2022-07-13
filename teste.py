@@ -46,47 +46,51 @@ def obter_limite():
 
     return limiteDeGasto
 
+# def classificaParcela():
+
+#     limite60 = float(precoProduto * 0.60)
+#     limite90 = float(precoProduto * 0.90)
+
+#     if precoProduto <= limite60:
+#         print("\nLiberado!")
+#     elif (precoProduto >= limite60) and (precoProduto <= limite90):
+#         print("\nPermitido parcelamento em até duas vezes.")
+#     else:
+#         print("\nPermitido parcelamento em três vezes ou mais.")
+
 limiteDeGasto = obter_limite()
 
 produtosDisponiveis = ['Mesa', 'Cadeira', 'Pia']
 
-def verificar_produto(limiteDeGasto, totalProdutos, qtdProdutos):
-    
-    totalProdutos = 0
 
-    if totalProdutos in produtosDisponiveis:
-        qtdProdutos = int(input(f"Informe os produtos para cadastrar: {produtosDisponiveis}"))
+def verificar_produto(limiteDeGasto):   
+
+    totalProdutos = 0  
+
+    if produtosDisponiveis in produtosDisponiveis:
+        qtdProdutos = int(input(f"Informe os produtos para cadastrar: "))
+        # precoProduto = float(input("\nE o valor dele em reais: "))
 
         totalProdutos = totalProdutos + qtdProdutos
 
     else:
-        print(f"Item {produtosDisponiveis} não cadastrado.")
+        print(f"Item {totalProdutos} não cadastrado.")
 
     # limiteMax = 0
-    while totalProdutos < limiteDeGasto:
-        produtosCadastrados = input("Informe os produtos para cadastrar: ")
-        print(f"\nProdutos cadastrados {totalProdutos + 1}")
+    # while totalProdutos < limiteDeGasto:
+    #     produtosCadastrados = input("Informe os produtos para cadastrar: ")
+    #     print(f"\nProdutos cadastrados {totalProdutos + 1}")
 
         # Dentro da sua estrutura de repetição, chame sua função “verificar_produto”, permitindo que o usuário consiga cadastrar todos os produtos e verificar se teria ou não limite sobrando para comprá-los.
 
-        totalProdutos, limiteMax = verificar_produto(limiteDeGasto)
+        # totalProdutos, limiteMax = verificar_produto(limiteDeGasto)
     # limite = limiteDeGasto
     # produto = input("Qual produto gostaria de comprar? ")
-    precoProduto = float(input("\nE o valor dele em reais: "))
 
-    limite60 = float(precoProduto * 0.60)
-    limite90 = float(precoProduto * 0.90)
+    return totalProdutos
 
-    if precoProduto <= limite60:
-        print("\nLiberado!")
-    elif (precoProduto >= limite60) and (precoProduto <= limite90):
-        print("\nPermitido parcelamento em até duas vezes.")
-    else:
-        print("\nPermitido parcelamento em três vezes ou mais.")
-
-    return produto, precoProduto, limiteDeGasto, totalProdutos, qtdProdutos
-
-produto, precoProduto = verificar_produto(limiteDeGasto, totalProdutos, qtdProdutos)
+totalProdutos = verificar_produto(limiteDeGasto)
+   
 
 # Coloque o código que você fez nas etapas 1 e 2 dentro de uma única função chamada “obter_limite”. Essa função deverá retornar o limite que o usuário poderá gastar.
 
@@ -100,10 +104,10 @@ produto, precoProduto = verificar_produto(limiteDeGasto, totalProdutos, qtdProdu
 
 limite = obter_limite()
 
-# print(limite)
+
 
 # Por fim, utilize uma estrutura de repetição (for ou while) por n vezes, com n equivalendo à quantidade de produtos que ele deseja cadastrar.
 
 
 
-print("Quais produtos deseja cadastrar? ")
+
