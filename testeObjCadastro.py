@@ -14,8 +14,8 @@ class Cadastro:
         return self.nome, self.funcao, self.salario, self.anoNascimento
 
     def limiteDeGasto(self):
-        print(f"Seu limite de gasto é de R${self.limiteDeGasto} e sua idade é {self.idade}")
-        return self.limiteDeGasto, self.idade
+        print(f"Seu limite de gasto é de R${limiteLiberado} e sua idade é {self.idade}")
+        return limiteLiberado, self.idade
 
     @classmethod
     def fazerCadastro(self):
@@ -25,8 +25,8 @@ class Cadastro:
 
         while True:
             try:
-                nome = input("Insira seu nome: ")
-                funcao = input("Insura sua profissão: ")
+                nome = str(input("Insira seu nome: "))
+                funcao = str(input("Insira sua profissão: "))
                 salario = int(input("Seu salário: "))
                 anoNascimento = int(input("Ano de nascimento: "))
                 return self(nome, funcao, salario, anoNascimento)
@@ -37,20 +37,43 @@ class Cadastro:
 
     @classmethod
     def obterLimiteGasto(self):
+        
+        anoAtual = 2022
 
-        global anoAtual
+        # self.idade = idade
+        # self.limiteLiberado = limiteLiberado
+
+        # idade = anoAtual - anoNascimento
+        # limiteLiberado = (salario * (idade/1000)) + 1000
+
+        # if idade < 18:
+        #     print("Pessoa menor de idade.")
+
+        # return self(idade, limiteLiberado)
+
+        # global anoAtual
+        # global idade
+        global limiteLiberado
+
+        # anoAtual = 2022
+        # idade = anoAtual - anoNascimento
+        # limiteDeGasto = (salario * (idade / 1000)) + 1000
+
+        # if idade < 18:
+        #     print("Pessoa menor de idade")
 
         while True:
             try:
                 anoAtual = 2022
-                idade = anoAtual - anoNascimento
+                calculaIdade = anoAtual - anoNascimento
+                idade = calculaIdade
 
                 if idade < 18:
                     print("Pessoa menor de idade")
                     break
 
-                limiteDeGasto = (salario * (idade / 1000)) + 1000
-                return idade, limiteDeGasto
+                limiteLiberado = (salario * (idade / 1000)) + 1000
+                return idade, limiteLiberado
             except:
                 break
 
